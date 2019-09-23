@@ -1,8 +1,11 @@
+from configparser import ConfigParser
 from azure.storage.blob import BlobClient
 
-cs = "DefaultEndpointsProtocol=https;AccountName=bizidata001;AccountKey=v37Lm6hqV7hBLrtYarjhS8BJiZmmFyQ4tLA6XzwjUPLkkrlFU3FQxj3FBPzaPTydYiDtSDK0XZM9Lm2dwrZOyg==;EndpointSuffix=core.windows.net"
+parser = ConfigParser()
+parser.read('config.ini')
+connection_string = parser.get('AZURE', 'STORAGE_CONNECTION_STRING')
     
-blob = BlobClient.from_connection_string(cs, container="bottledetector", blob="config.ini")
+blob = BlobClient.from_connection_string(connection_string, container="bottledetector", blob="config.ini")
 
 with open("./config.ini", "wb") as my_blob:
     blob_data = blob.download_blob()
