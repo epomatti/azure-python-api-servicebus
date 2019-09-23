@@ -6,8 +6,7 @@ app = Flask(__name__)
 def detect():
     print(request.json)
 
-    cs = "DefaultEndpointsProtocol=https;AccountName=bizidata001;AccountKey=v37Lm6hqV7hBLrtYarjhS8BJiZmmFyQ4tLA6XzwjUPLkkrlFU3FQxj3FBPzaPTydYiDtSDK0XZM9Lm2dwrZOyg==;EndpointSuffix=core.windows.net"
-    
+    cs = ""   
     blob = BlobClient.from_connection_string(cs, container="bottledetector", blob="config.ini")
 
     with open("./config.ini", "wb") as my_blob:
