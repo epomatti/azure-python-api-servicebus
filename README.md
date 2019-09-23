@@ -15,6 +15,7 @@ Install dependencies:
 pip3 install pylint
 python3 -m venv env
 pip3 install -r requirements.txt
+pip3 install azure-storage-blob --pre
 ```
 
 Run it:

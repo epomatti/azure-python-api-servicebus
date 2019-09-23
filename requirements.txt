@@ -1,3 +1,2 @@
 Flask
-azure-storage-blob
 azure-servicebus
