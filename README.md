@@ -22,3 +22,7 @@ Run it:
 ```
 python3 start.py
 ```
+
+## References
+
+[Azure Storage Blobs client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
