@@ -1,5 +1,16 @@
 # Python API
 
+## Infrastructure
+
+You'll need a storage account with a blob container, and a Service Bus with a queue.
+
+```
+az storage account create -n MyStorageAccountName -g MyResourceGroupName
+az servicebus namespace create -n MyServiceBusName -g MyResourceGroupName
+```
+
+## Application
+
 Prepare environment:
 
 ```
