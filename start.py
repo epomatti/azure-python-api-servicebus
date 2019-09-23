@@ -1,17 +1,12 @@
 from flask import Flask, request
 from azure.storage.blob import BlobClient
+from enqueue import enqueue
 app = Flask(__name__)
 
 @app.route("/detect", methods=['POST'])
 def detect():
-    print(request.json)
-
-    cs = ""   
-    blob = BlobClient.from_connection_string(cs, container="bottledetector", blob="config.ini")
-
-    with open("./config.ini", "wb") as my_blob:
-        blob_data = blob.download_blob()
-        my_blob.writelines(blob_data.content_as_bytes())
+    enqueue('my message')
+    return 'OK'
     
 if __name__ == "__main__":
     app.run()
