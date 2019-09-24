@@ -9,7 +9,7 @@ az storage account create -n MyStorageAccountName -g MyResourceGroupName
 az servicebus namespace create -n MyServiceBusName -g MyResourceGroupName
 ```
 
-## Application
+## Development
 
 Prepare environment:
 
