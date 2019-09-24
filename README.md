@@ -24,7 +24,7 @@ sudo apt install python3.7 python3.7-venv
 
 # Install latest pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python37 get-pip.py
+sudo python3.7 get-pip.py
 
 # Check if pip is matching for Python 3.7
 pip --version
@@ -33,7 +33,7 @@ pip --version
 Install dependencies:
 
 ```shell
-python37 -m venv env
+python3.7 -m venv env
 . env/bin/activate
 pip install --upgrade pip # upgrade pip
 pip install -r requirements.txt
