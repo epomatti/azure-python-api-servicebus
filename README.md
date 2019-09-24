@@ -35,7 +35,8 @@ Install dependencies:
 ```shell
 python3.7 -m venv env
 . env/bin/activate
-pip install --upgrade pip # upgrade pip
+pip install --upgrade pip
+pip install pylint
 pip install -r requirements.txt
 pip install azure-storage-blob --pre
 ```
