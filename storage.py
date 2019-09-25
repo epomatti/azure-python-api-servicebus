@@ -11,7 +11,8 @@ def download(file):
     blob = BlobClient.from_connection_string(
         connection_string, container=container_name, blob=file)
     
-    with open("./output.json", "wb") as my_blob:
+    local_file = "./{}".format(file)
+    with open(local_file, "wb") as my_blob:
         blob_data = blob.download_blob()
         my_blob.write(blob_data.content_as_bytes())
 

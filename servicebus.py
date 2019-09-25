@@ -15,7 +15,7 @@ def enqueue(message, queue_param_name):
     msg = Message(message)
     queue_client.send(msg)
 
-def denqueue() :
+def dequeue():
     parser = ConfigParser()
     parser.read('config.ini')
     connection_string = parser.get('AZURE', 'SERVICE_BUS_CONNECTION_STRING')
@@ -31,3 +31,18 @@ def denqueue() :
         for message in messages:
             print(message)
             message.complete()
+
+def dequeue_loop(callback):
+    parser = ConfigParser()
+    parser.read('config.ini')
+    connection_string = parser.get('AZURE', 'SERVICE_BUS_CONNECTION_STRING')
+    queue_name = parser.get('AZURE', 'SERVICE_BUS_INPUT_QUEUE')
+
+    # Create the QueueClient
+    queue_client = QueueClient.from_connection_string(
+        connection_string, queue_name)
+
+    messages = queue_client.get_receiver()
+    for message in messages:
+        callback(message)
+        message.complete()
