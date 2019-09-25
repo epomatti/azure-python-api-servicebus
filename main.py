@@ -6,9 +6,8 @@ import json
 def callback(message):
     json_msg = json.loads(message.__str__())    
     file = json_msg['filename']
-    print(file)
     download(file)
     enqueue('processou', 'SERVICE_BUS_OUTPUT_QUEUE')
-    os.remove(file)
+    os.remove('./files/{}'.format(file))
 
 dequeue_loop(callback)

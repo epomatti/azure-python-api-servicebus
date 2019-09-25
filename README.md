@@ -41,10 +41,16 @@ pip install -r requirements.txt
 pip install azure-storage-blob --pre
 ```
 
+Generate sample data:
+
+```
+python3.7 data_generator.py
+```
+
 Run it:
 
 ```
-python3 start.py
+python3.7 main.py
 ```
 
 ## References
