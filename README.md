@@ -11,7 +11,7 @@ az servicebus namespace create -n MyServiceBusName -g MyResourceGroupName
 
 ## Development
 
-Prepare environment:
+Prepare the environment:
 
 ```shell
 # Update packages
