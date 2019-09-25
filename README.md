@@ -63,7 +63,7 @@ With Docker:
 
 ```
 docker build -t python-api .
-
+docker run -it --rm --name python-api python-api
 ```
 
 ## References
