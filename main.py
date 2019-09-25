@@ -4,7 +4,9 @@ import os
 import json
 
 def callback(message):
-    json_msg = json.loads(message.__str__())    
+    data = next(message.body)
+    print(data)
+    json_msg = json.loads(data)    
     file = json_msg['filename']
     download(file)
     enqueue('processou', 'SERVICE_BUS_OUTPUT_QUEUE')
