@@ -59,6 +59,13 @@ Run it:
 python3.7 main.py
 ```
 
+With Docker:
+
+```
+docker build -t python-api .
+docker run -it --rm --name python-api python-api
+```
+
 ## References
 
 [Azure Storage Blobs client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
