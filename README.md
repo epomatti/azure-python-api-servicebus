@@ -41,6 +41,12 @@ pip install -r requirements.txt
 pip install azure-storage-blob --pre
 ```
 
+Create the configurations file:
+
+```
+config.ini
+```
+
 Generate sample data:
 
 ```
