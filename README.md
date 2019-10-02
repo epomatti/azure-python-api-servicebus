@@ -20,7 +20,7 @@ sudo apt-get update
 # Install latest Python
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.7 python3.7-venv
+sudo apt install python3.7 python3.7-dev python3.7-venv
 
 # Install latest pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
