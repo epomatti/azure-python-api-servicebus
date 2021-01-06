@@ -1,5 +1,7 @@
 # Python API
 
+A sample Python API using Flask to integrate with Azure Storage and Azure Service Bus.
+
 ## Infrastructure
 
 You'll need a storage account with a blob container, and a Service Bus with a queue.
