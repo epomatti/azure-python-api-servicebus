@@ -1,4 +1,4 @@
-# Python API
+# Python API - Service Bus, Blog Storage
 
 A sample Python API using Flask to integrate with Azure Storage and Azure Service Bus.
 
@@ -6,72 +6,52 @@ A sample Python API using Flask to integrate with Azure Storage and Azure Servic
 
 You'll need a storage account with a blob container, and a Service Bus with a queue.
 
+```sh
+group='rg-myproj'
+location='eastus2'
+storage='stmyproj'
+namespace='bus-myproj'
+
+az group create -n $group -l $location
+az storage account create -n $storage -g $group -l $location
+az storage container create -n 'files' --account-name $storage
+
+az servicebus namespace create -n $namespace -g $group -l $location
+az servicebus queue create -n 'inQueue' --namespace-name $namespace -g $group
+az servicebus queue create -n 'outQueue' --namespace-name $namespace -g $group
 ```
-az storage account create -n MyStorageAccountName -g MyResourceGroupName
-az servicebus namespace create -n MyServiceBusName -g MyResourceGroupName
-```
 
-## Development
+## Running it
 
-Prepare the environment:
-
-```shell
-# Update packages
-sudo apt-get update
-
-# Install latest Python
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.7 python3.7-dev python3.7-venv
-
-# Install latest pip
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python3.7 get-pip.py
-
-# Check if pip is matching for Python 3.7
-pip --version
-```
 
 Install dependencies:
 
-```shell
-python3.7 -m venv env
+```sh
+python3 -m venv env
 . env/bin/activate
-pip install --upgrade pip
-pip install pylint
 pip install -r requirements.txt
-pip install azure-storage-blob --pre
 ```
 
-Create the configurations file:
+Create the configurations file and temp directory:
 
-```
-config.ini
-```
-
-Generate sample data:
-
-```
-python3.7 data_generator.py
+```sh
+mkdir files
+cp example.config.ini config.ini
 ```
 
-Run it:
+Generate the data and serve the application:
 
-```
-python3.7 main.py
+```sh
+# Generate the sample data
+python3 src/data_generator.py
+
+# Run the program
+python3 src/main.py
 ```
 
 With Docker:
 
-```
+```sh
 docker build -t python-api .
 docker run -it --rm --name python-api python-api
 ```
-
-## References
-
-[Azure Storage Blobs client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
-
-[How to use Service Bus queues with Python](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
-
-[Installing PIP](https://pip.pypa.io/en/stable/installing/)

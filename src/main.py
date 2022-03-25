@@ -1,4 +1,4 @@
-from storage import download, delete
+from storage import download
 from servicebus import dequeue_loop, enqueue
 import os
 import json
@@ -9,7 +9,7 @@ def callback(message):
     json_msg = json.loads(data)    
     file = json_msg['filename']
     download(file)
-    enqueue('processou', 'SERVICE_BUS_OUTPUT_QUEUE')
+    enqueue('processed', 'SERVICE_BUS_OUTPUT_QUEUE')
     os.remove('./files/{}'.format(file))
 
 dequeue_loop(callback)

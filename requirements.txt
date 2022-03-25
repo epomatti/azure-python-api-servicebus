@@ -1,2 +1,5 @@
 Flask
 azure-servicebus
+azure-storage-blob
+pylint
+autopep8

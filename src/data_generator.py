@@ -1,13 +1,13 @@
 from servicebus import enqueue
 from storage import delete, upload
 
-delete('file1.txt')
-delete('file2.txt')
-delete('file3.txt')
+# delete('file1.txt')
+# delete('file2.txt')
+# delete('file3.txt')
 
-upload('./sample_file.txt', 'file1.txt')
-upload('./sample_file.txt', 'file2.txt')
-upload('./sample_file.txt', 'file3.txt')
+# upload('./sample_file.txt', 'file1.txt')
+# upload('./sample_file.txt', 'file2.txt')
+# upload('./sample_file.txt', 'file3.txt')
 
 data1 = '{"timestamp": "2019-09-25 00:00:00.000000", "filename": "file1.txt", "device_id": "device1"}'
 data2 = '{"timestamp": "2019-09-25 00:00:00.000000", "filename": "file2.txt", "device_id": "device2"}'
