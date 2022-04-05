@@ -1,4 +1,4 @@
-# Python API - Service Bus, Blog Storage
+# Python API - Service Bus, Blob Storage
 
 A sample Python API using Flask to integrate with Azure Storage and Azure Service Bus.
 
